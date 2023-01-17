@@ -6,7 +6,7 @@ const [countries, setCountries] = useState([]);
 
 useEffect(() => {
   const fetchCountries = async () => {
-    const response = await fetch('https://restcountries.com/v3.1/all');
+    const response = await fetch('https://restcountries.com/v2/all?fields=name,region,area');
     const data = await response.json();
 
     setCountries(data);
