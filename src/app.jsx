@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
+import { Container } from "@mui/material";
+import Header from "./styles/components/header";
+import CountryList from "./styles/components/country-list";
 
 const App = () => {
 const [countries, setCountries] = useState([]);
@@ -18,7 +20,10 @@ useEffect(() => {
 console.log('countries', countries);
 
   return (
-    <Typography>test</Typography>
+    <Container>
+      <Header countries={countries}/>
+      <CountryList />
+    </Container>
   );
 }
 
