@@ -22,7 +22,7 @@ const CountryTable = ({ countries }) => {
         <TableRow>
           {
             tableCells.map(({ id, label }) => (
-              <TableCell key={id} align="left">{label}</TableCell>
+              <TableCell key={id} align="left" sx={{ fontWeight: 'bold' }}>{label.toUpperCase()}</TableCell>
             ))
           }
         </TableRow>
@@ -31,7 +31,13 @@ const CountryTable = ({ countries }) => {
       <TableBody>
         {
           countries.map(({ name, region, area, independent }, i) => (
-            <TableRow key={i}>
+            <TableRow key={i}
+              sx={{
+                '&:hover': {
+                  backgroundColor: '#f2f2f2',
+                }
+              }}
+            >
               <TableCell>{name}</TableCell>
               <TableCell>{region}</TableCell>
               <TableCell>{area}</TableCell>
