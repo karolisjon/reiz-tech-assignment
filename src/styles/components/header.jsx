@@ -9,7 +9,7 @@ const Header = ({ countries }) => {
         variant='h4'
         component='h1'
       >
-        Countries
+        Countries table
       </Typography>
       <Typography
         variant='body1'
