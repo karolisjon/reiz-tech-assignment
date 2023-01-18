@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import Header from "./styles/components/header";
-import CountryList from "./styles/components/country-list";
+import CountryTable from "./styles/components/country-table";
 
 const App = () => {
 const [countries, setCountries] = useState([]);
@@ -22,7 +22,7 @@ console.log('countries', countries);
   return (
     <Container>
       <Header countries={countries}/>
-      <CountryList />
+      <CountryTable countries={countries}/>
     </Container>
   );
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   Table,
+  TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
 } from '@mui/material';
 
 const tableCells = [
@@ -11,9 +12,10 @@ const tableCells = [
   { id: 2, label: 'Region' },
   { id: 3, label: 'Area' },
   { id: 4, label: 'Independent' },
-]
+];
 
-const CountryList = () => {
+const CountryTable = ({ countries }) => {
+
   return (
     <Table>
       <TableHead>
@@ -25,8 +27,23 @@ const CountryList = () => {
           }
         </TableRow>
       </TableHead>
+
+      <TableBody>
+        {
+          countries.map(({ name, region, area, independent }, i) => (
+            <TableRow key={i}>
+              <TableCell>{name}</TableCell>
+              <TableCell>{region}</TableCell>
+              <TableCell>{area}</TableCell>
+              <TableCell>{independent ? 'Yes' : 'No'}</TableCell>
+            </TableRow>
+          ))
+        }
+      </TableBody>
     </Table>
+
+
   )
 }
 
-export default CountryList;
+export default CountryTable;
