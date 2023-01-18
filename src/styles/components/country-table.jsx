@@ -21,6 +21,15 @@ const tableCells = [
 
 const CountryTable = ({ countries }) => {
   const [sortName, setSortName] = useState('none');
+  const [filteredCountry, setFilteredCountry] = useState('none');
+
+  const getSmallCountries = () => {
+    const LT = countries.filter(country => country.name === 'Lithuania');
+    const smallCountries = countries.filter(country => country.area < LT[0].area);
+
+    console.log(smallCountries);
+    return smallCountries;
+  }
 
   const sortNameMethods = {
     'none': { method: (a, b) => null },
@@ -28,11 +37,17 @@ const CountryTable = ({ countries }) => {
     descending: { method: (a, b) => b.name.localeCompare(a.name, 'en') },
   };
 
+  const filterCountryMethods = {
+    'none': { method: (country) => country },
+    'smaller': { method: (country) => country.area < 653000 },
+    'oceania': { method: (country) => country.region === 'Oceania' },
+  };
+
   return (
     <Box>
 
       <Box sx={{ display: 'flex', my: 2 }}>
-        <FormControl variant='standard' sx={{ width: 200 }}>
+        <FormControl variant='standard' sx={{ mr: 2, width: 200 }}>
           <InputLabel>SORT NAME</InputLabel>
           <Select
             defaultValue={'none'}
@@ -41,6 +56,18 @@ const CountryTable = ({ countries }) => {
             <MenuItem value='none'><em>None</em></MenuItem>
             <MenuItem value='ascending'>A to Z</MenuItem>
             <MenuItem value='descending'>Z to A</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl variant='standard' sx={{ width: 200 }}>
+          <InputLabel>FILTER BY</InputLabel>
+          <Select
+            defaultValue={'none'}
+            onChange={(e) => setFilteredCountry(e.target.value)}
+          >
+            <MenuItem value='none'><em>None</em></MenuItem>
+            <MenuItem value='smaller'>smaller than LT</MenuItem>
+            <MenuItem value='oceania'>'Oceania' region</MenuItem>
           </Select>
         </FormControl>
 
@@ -59,7 +86,10 @@ const CountryTable = ({ countries }) => {
 
         <TableBody>
           {
-            countries.sort(sortNameMethods[sortName].method).map(({ name, region, area, independent }, i) => (
+            countries
+            .filter(filterCountryMethods[filteredCountry].method)
+            .sort(sortNameMethods[sortName].method)
+            .map(({ name, region, area, independent }, i) => (
               <TableRow key={i}
                 sx={{
                   '&:hover': {

@@ -12,14 +12,14 @@ const theme = createTheme({
     MuiTableHead: {
       styleOverrides: {
         root: {
-          backgroundColor: '#e9e8ff',
+          backgroundColor: '#ff7171',
         }
       }
     },
     MuiTableRow: {
       styleOverrides: {
         root: {
-          '&:nth-child(even)': {
+          '&:nth-of-type(even)': {
             backgroundColor: '#f7f7f7',
           }
         }

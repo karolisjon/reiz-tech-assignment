@@ -17,10 +17,8 @@ useEffect(() => {
   fetchCountries();
 }, []);
 
-console.log('countries', countries);
-
   return (
-    <Container>
+    <Container maxWidth='md'>
       <Header countries={countries}/>
       <CountryTable countries={countries}/>
     </Container>
