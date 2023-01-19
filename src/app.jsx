@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
-import Header from "./styles/components/header";
+import Header from "./components/header";
 import CountryTable from "./styles/components/country-table";
 
 const App = () => {
