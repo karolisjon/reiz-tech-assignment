@@ -1,6 +1,11 @@
 import { createTheme } from '@mui/material';
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ff7171',
+    }
+  },
   typography: {
     fontFamily: 'Quicksand',
     fontWeightLight: 400,

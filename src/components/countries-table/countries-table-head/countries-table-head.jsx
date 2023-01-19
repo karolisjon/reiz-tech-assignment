@@ -10,15 +10,15 @@ const tableCells = [
 
 const CountriesTableHead = () => {
   return (
-    <TableHead>
-    <TableRow>
-      {
-        tableCells.map(({ id, label }) => (
-          <TableCell key={id} align="left" sx={{ fontWeight: 'bold' }}>{label}</TableCell>
-        ))
-      }
-    </TableRow>
-  </TableHead>
+    <TableHead sx={{ backgroundColor: 'primary.main' }}>
+      <TableRow>
+        {
+          tableCells.map(({ id, label }) => (
+            <TableCell key={id} align="left" sx={{ fontWeight: 'bold' }}>{label}</TableCell>
+          ))
+        }
+      </TableRow>
+    </TableHead>
   )
 }
 
