@@ -30,7 +30,6 @@ const App = () => {
   const handlePageChange = (_, page) => {
     const from = (page - 1) * pageSize;
     const to = (page - 1) * pageSize + pageSize;
-
     setPagination({ ...pagination, from: from, to: to })
   };
 
@@ -38,11 +37,12 @@ const App = () => {
     fetchAllCountries({
       from: pagination.from,
       to: pagination.to
-    }).then(res => {
-      setCountries(res.countries);
-      setPagination({ ...pagination, count: res.count });
+    }).then(({ countries, count }) => {
+      setCountries(countries);
+      setPagination({ ...pagination, count });
     })
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagination.from, pagination.to]);
 
   return (

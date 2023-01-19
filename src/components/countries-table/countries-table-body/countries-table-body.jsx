@@ -1,8 +1,8 @@
 import React from 'react';
 import { TableBody, TableCell, TableRow } from '@mui/material';
 
-const CountriesTableBody = ({ countries,sortName, filteredCountry }) => {
-  
+const CountriesTableBody = ({ countries, sortName, filteredCountry }) => {
+
   const sortNameMethods = {
     'none': { method: (a, b) => null },
     ascending: { method: (a, b) => a.name.localeCompare(b.name, 'en') },
