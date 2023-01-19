@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import Header from "./components/header/header";
-import CountriesTable from "./components/table/countries-table";
+import CountriesTable from "./components/countries-table/countries-table";
 
 const pageSize = 10;
 
