@@ -11,6 +11,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import TablePagination from './table-pagination';
 
 const tableCells = [
   { id: 1, label: 'Name' },
@@ -19,7 +20,7 @@ const tableCells = [
   { id: 4, label: 'Independent' },
 ];
 
-const CountryTable = ({ countries }) => {
+const CountryTable = ({ countries, handlePageChange, pagination, pageSize }) => {
   const [sortName, setSortName] = useState('none');
   const [filteredCountry, setFilteredCountry] = useState('none');
 
@@ -37,7 +38,6 @@ const CountryTable = ({ countries }) => {
 
   return (
     <Box>
-
       <Box sx={{ display: 'flex', my: 2 }}>
         <FormControl variant='standard' sx={{ mr: 2, width: 200 }}>
           <InputLabel>SORT NAME</InputLabel>
@@ -50,7 +50,6 @@ const CountryTable = ({ countries }) => {
             <MenuItem value='descending'>Z to A</MenuItem>
           </Select>
         </FormControl>
-
         <FormControl variant='standard' sx={{ width: 200 }}>
           <InputLabel>FILTER BY</InputLabel>
           <Select
@@ -62,9 +61,7 @@ const CountryTable = ({ countries }) => {
             <MenuItem value='oceania'>'Oceania' region</MenuItem>
           </Select>
         </FormControl>
-
       </Box>
-
       <Table>
         <TableHead>
           <TableRow>
@@ -79,25 +76,31 @@ const CountryTable = ({ countries }) => {
         <TableBody>
           {
             countries
-            .filter(filterCountryMethods[filteredCountry].method)
-            .sort(sortNameMethods[sortName].method)
-            .map(({ name, region, area, independent }, i) => (
-              <TableRow key={i}
-                sx={{
-                  '&:hover': {
-                    backgroundColor: '#f2f2f2',
-                  }
-                }}
-              >
-                <TableCell>{name}</TableCell>
-                <TableCell>{region}</TableCell>
-                <TableCell>{area}</TableCell>
-                <TableCell>{independent ? 'Yes' : 'No'}</TableCell>
-              </TableRow>
-            ))
+              .filter(filterCountryMethods[filteredCountry].method)
+              .sort(sortNameMethods[sortName].method)
+              .map(({ name, region, area, independent }, i) => (
+                <TableRow key={i}
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: '#f2f2f2',
+                    }
+                  }}
+                >
+                  <TableCell>{name}</TableCell>
+                  <TableCell>{region}</TableCell>
+                  <TableCell>{area}</TableCell>
+                  <TableCell>{independent ? 'Yes' : 'No'}</TableCell>
+                </TableRow>
+              ))
           }
         </TableBody>
       </Table>
+      <TablePagination 
+        countries={countries}
+        handlePageChange={handlePageChange}
+        pagination={pagination}
+        pageSize={pageSize}
+        />
     </Box>
   )
 }

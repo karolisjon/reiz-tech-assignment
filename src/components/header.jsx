@@ -1,21 +1,15 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-const Header = ({ countries }) => {
-
+const Header = () => {
+  
   return (
-    <Box sx={{ my: 4 }}>
+    <Box sx={{ mt: 4, mb: 6 }}>
       <Typography
         variant='h4'
         component='h1'
       >
         Countries table
-      </Typography>
-      <Typography
-        variant='body1'
-        component='h2'
-      >
-        {countries.length} countries
       </Typography>
     </Box>
   )
