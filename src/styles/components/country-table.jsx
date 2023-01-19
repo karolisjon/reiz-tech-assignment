@@ -23,14 +23,6 @@ const CountryTable = ({ countries }) => {
   const [sortName, setSortName] = useState('none');
   const [filteredCountry, setFilteredCountry] = useState('none');
 
-  const getSmallCountries = () => {
-    const LT = countries.filter(country => country.name === 'Lithuania');
-    const smallCountries = countries.filter(country => country.area < LT[0].area);
-
-    console.log(smallCountries);
-    return smallCountries;
-  }
-
   const sortNameMethods = {
     'none': { method: (a, b) => null },
     ascending: { method: (a, b) => a.name.localeCompare(b.name, 'en') },
@@ -39,7 +31,7 @@ const CountryTable = ({ countries }) => {
 
   const filterCountryMethods = {
     'none': { method: (country) => country },
-    'smaller': { method: (country) => country.area < 653000 },
+    'smaller': { method: (country) => country.area < 65300 },
     'oceania': { method: (country) => country.region === 'Oceania' },
   };
 
