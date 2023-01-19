@@ -6,7 +6,7 @@ import {
   Select
 } from '@mui/material';
 
-const TableActionFilter = ({ setFilteredCountry }) => {
+const CountriesTableActionFilter = ({ setFilteredCountry }) => {
   return (
     <FormControl variant='standard' sx={{ width: 200 }}>
       <InputLabel>FILTER BY</InputLabel>
@@ -22,4 +22,4 @@ const TableActionFilter = ({ setFilteredCountry }) => {
   )
 }
 
-export default TableActionFilter;
+export default CountriesTableActionFilter;

@@ -7,8 +7,8 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import TablePagination from './table-pagination';
-import TableActions from './table-actions/table-actions';
+import CountriesTablePagination from './country-table-pagination/countries-table-pagination';
+import CountriesTableActions from './countries-table-actions/countries-table-actions';
 
 const tableCells = [
   { id: 1, label: 'Name' },
@@ -17,7 +17,7 @@ const tableCells = [
   { id: 4, label: 'Independent' },
 ];
 
-const CountryTable = ({ countries, handlePageChange, pagination, pageSize }) => {
+const CountriesTable = ({ countries, handlePageChange, pagination, pageSize }) => {
   const [sortName, setSortName] = useState('none');
   const [filteredCountry, setFilteredCountry] = useState('none');
 
@@ -35,7 +35,7 @@ const CountryTable = ({ countries, handlePageChange, pagination, pageSize }) => 
 
   return (
     <Box>
-      <TableActions setSortName={setSortName} setFilteredCountry={setFilteredCountry} />
+      <CountriesTableActions setSortName={setSortName} setFilteredCountry={setFilteredCountry} />
 
       <Table>
         <TableHead>
@@ -70,7 +70,7 @@ const CountryTable = ({ countries, handlePageChange, pagination, pageSize }) => 
           }
         </TableBody>
       </Table>
-      <TablePagination 
+      <CountriesTablePagination 
         countries={countries}
         handlePageChange={handlePageChange}
         pagination={pagination}
@@ -80,4 +80,4 @@ const CountryTable = ({ countries, handlePageChange, pagination, pageSize }) => 
   )
 }
 
-export default CountryTable;
+export default CountriesTable;

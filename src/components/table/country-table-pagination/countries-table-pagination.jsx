@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pagination } from '@mui/material';
 
-const TablePagination = ({ handlePageChange, pagination, pageSize }) => {
+const CountriesTablePagination = ({ handlePageChange, pagination, pageSize }) => {
 
   return (
     <Pagination
@@ -14,4 +14,4 @@ const TablePagination = ({ handlePageChange, pagination, pageSize }) => {
   )
 }
 
-export default TablePagination;
+export default CountriesTablePagination;

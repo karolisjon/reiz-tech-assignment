@@ -6,7 +6,7 @@ import {
   Select
 } from '@mui/material';
 
-const TableActionSort = ({ setSortName }) => {
+const CountriesTableActionSort = ({ setSortName }) => {
   return (
     <FormControl variant='standard' sx={{ mr: 2, width: 200 }}>
       <InputLabel>SORT NAME</InputLabel>
@@ -22,4 +22,4 @@ const TableActionSort = ({ setSortName }) => {
   )
 }
 
-export default TableActionSort;
+export default CountriesTableActionSort;

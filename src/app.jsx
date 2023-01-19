@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
-import Header from "./components/header";
-import CountryTable from "./components/country-table";
+import Header from "./components/header/header";
+import CountriesTable from "./components/table/countries-table";
 
 const pageSize = 10;
 
@@ -48,7 +48,7 @@ const App = () => {
   return (
     <Container maxWidth='lg'>
       <Header countries={countries} />
-      <CountryTable
+      <CountriesTable
         countries={countries}
         handlePageChange={handlePageChange}
         pagination={pagination}
