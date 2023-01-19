@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import {
   Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
   Table,
   TableBody,
   TableCell,
@@ -12,6 +8,7 @@ import {
   TableRow,
 } from '@mui/material';
 import TablePagination from './table-pagination';
+import TableActions from './table-actions/table-actions';
 
 const tableCells = [
   { id: 1, label: 'Name' },
@@ -38,30 +35,8 @@ const CountryTable = ({ countries, handlePageChange, pagination, pageSize }) => 
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', my: 2 }}>
-        <FormControl variant='standard' sx={{ mr: 2, width: 200 }}>
-          <InputLabel>SORT NAME</InputLabel>
-          <Select
-            defaultValue={'none'}
-            onChange={(e) => setSortName(e.target.value)}
-          >
-            <MenuItem value='none'><em>None</em></MenuItem>
-            <MenuItem value='ascending'>A to Z</MenuItem>
-            <MenuItem value='descending'>Z to A</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl variant='standard' sx={{ width: 200 }}>
-          <InputLabel>FILTER BY</InputLabel>
-          <Select
-            defaultValue={'none'}
-            onChange={(e) => setFilteredCountry(e.target.value)}
-          >
-            <MenuItem value='none'><em>None</em></MenuItem>
-            <MenuItem value='smaller'>smaller than LT</MenuItem>
-            <MenuItem value='oceania'>'Oceania' region</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
+      <TableActions setSortName={setSortName} setFilteredCountry={setFilteredCountry} />
+
       <Table>
         <TableHead>
           <TableRow>

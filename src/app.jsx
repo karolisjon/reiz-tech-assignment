@@ -46,7 +46,7 @@ const App = () => {
   }, [pagination.from, pagination.to]);
 
   return (
-    <Container maxWidth='md'>
+    <Container maxWidth='lg'>
       <Header countries={countries} />
       <CountryTable
         countries={countries}
