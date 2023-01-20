@@ -15,7 +15,7 @@ const CountriesTableActionFilter = ({ setFilteredCountry }) => {
         onChange={(e) => setFilteredCountry(e.target.value)}
       >
         <MenuItem value='none'><em>None</em></MenuItem>
-        <MenuItem value='smaller'>smaller than LT</MenuItem>
+        <MenuItem value='smaller'>smaller than Lithuania</MenuItem>
         <MenuItem value='oceania'>'Oceania' region</MenuItem>
       </Select>
     </FormControl>
